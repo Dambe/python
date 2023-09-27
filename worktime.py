@@ -45,9 +45,16 @@ if __name__ == "__main__":
     # calculate overtime
     if t_working >= timedelta(hours=8):
         t_over = t_working - timedelta(hours=8)
-        t_over_breakfast = t_working_breakfast - timedelta(hours=8)
         print(f"overtime: {print_timedelta_hours_minutes(t_over)}")
-        print(f"w/coffee: {print_timedelta_hours_minutes(t_over_breakfast)}")
     else:
         t_remaining = timedelta(hours=8) - t_working
         print(f"remaining: {print_timedelta_hours_minutes(t_remaining)}")
+
+    if t_working_breakfast >= timedelta(hours=8):
+        t_over_breakfast = t_working_breakfast - timedelta(hours=8)
+        print(f"w/coffee: {print_timedelta_hours_minutes(t_over_breakfast)}")
+    else:
+        t_remaining_breakfast = timedelta(hours=8) - t_working_breakfast
+        print(
+            f"w/coffee remaining: {print_timedelta_hours_minutes(t_remaining_breakfast)}"
+        )
