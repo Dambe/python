@@ -24,6 +24,7 @@ if __name__ == "__main__":
     t_now = datetime.strptime(datetime.now().strftime("%H:%M"), "%H:%M")
     # calculate current working time
     t_working = t_now - t_start
+    t_working_breakfast = t_working
     # after working 6 hours, 30min are deducted automatically
     if t_working > timedelta(hours=6):
         t_working = t_working - timedelta(minutes=30)
