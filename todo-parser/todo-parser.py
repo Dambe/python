@@ -61,16 +61,16 @@ def get_todo_list():
 
 
 if __name__ == "__main__":
-    todo_list = get_todo_list()
+    todo_list_main = get_todo_list()
 
-    for todo in filter_overdue(todo_list):
-        print(f"{todo.strip()}")
+    for todo_main in filter_overdue(todo_list_main):
+        print(f"{todo_main.strip()}")
 
-    # for todo in filter_due_today(todo_list):
-    #     print(f"{todo.strip()}")
+    # for todo in filter_due_today(todo_list_main):
+    #     print(f"{todo_main.strip()}")
 
-    # for todo in filter_open_todos(todo_list):
-    #     print(f"{todo.strip()}")
+    # for todo in filter_open_todos(todo_list_main):
+    #     print(f"{todo_main.strip()}")
 
-    # for todo in filter_done_todos(todo_list):
-    #     print(f"{todo.strip()}")
+    # for todo in filter_done_todos(todo_list_main):
+    #     print(f"{todo_main.strip()}")
