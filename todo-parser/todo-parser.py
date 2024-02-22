@@ -71,6 +71,12 @@ def sort_list_by_duedate(todo_list: list):
     return sorted(todo_list, key=helper_extract_and_convert_date)
 
 
+def create_new_todo():
+    todo = input("ToDo: ")
+    due_date = input("Due Date [dd.mm.yyyy]: ")
+
+    return "- [ ] " + todo + " | " + due_date
+
 
 def get_todo_list():
     with open(TODO_LIST_PATH, "r", encoding="utf-8") as todo_file:
