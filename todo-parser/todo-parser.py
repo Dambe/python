@@ -61,6 +61,11 @@ def set_todo_open(todo):
     return todo.replace("[x]", "[ ]")
 
 
+def set_todo_duedate(todo, new_duedate):
+    # Regular expression pattern to match the German date format
+    pattern = r"\b\d{2}\.\d{2}\.\d{4}\b"
+    return re.sub(pattern, new_duedate, todo)
+
 
 def sort_list_by_duedate(todo_list: list):
     return sorted(todo_list, key=helper_extract_and_convert_date)
