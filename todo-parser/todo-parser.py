@@ -103,17 +103,31 @@ def get_todo_list():
     return todo_l
 
 
+def print_help():
+    print("")
+    print("usage: enter number and press enter.")
+    print("[1] create new todo item")
+    print("[2] print todo list")
+    print("[3] print todo list sorted by due date")
+    print("[4] print unresolved todos")
+    print("[0] exit program")
+
+
 if __name__ == "__main__":
     todo_list_main = get_todo_list()
 
-    for todo_main in filter_overdue(todo_list_main):
-        print(f"{todo_main.strip()}")
-
-    # for todo in filter_due_today(todo_list_main):
-    #     print(f"{todo_main.strip()}")
-
-    # for todo in filter_open_todos(todo_list_main):
-    #     print(f"{todo_main.strip()}")
-
-    # for todo in filter_done_todos(todo_list_main):
-    #     print(f"{todo_main.strip()}")
+    while True:
+        print_help()
+        ui = input("> ")
+        if ui == "1":
+            create_new_todo()
+        elif ui == "2":
+            helper_print_list(todo_list_main)
+        elif ui == "3":
+            helper_print_list(sort_list_by_duedate(todo_list_main))
+        elif ui == "4":
+            helper_print_list(filter_open_todos(todo_list_main))
+        elif ui == "0":
+            sys.exit()
+        else:
+            print("Invalid Input. Try again.")
