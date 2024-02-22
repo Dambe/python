@@ -53,6 +53,15 @@ def filter_done_todos(todo_list: list):
     return done_todos
 
 
+def set_todo_done(todo):
+    return todo.replace("[ ]", "[x]")
+
+
+def set_todo_open(todo):
+    return todo.replace("[x]", "[ ]")
+
+
+
 def get_todo_list():
     with open(TODO_LIST_PATH, "r", encoding="utf-8") as todo_file:
         todo_l = todo_file.readlines()
