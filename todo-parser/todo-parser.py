@@ -1,6 +1,24 @@
-from datetime import date
+from datetime import date, datetime
+import re
+import sys
 
 TODO_LIST_PATH = "/home/jahu/_vm-share/src/python/todo-parser/parser-test.md"
+
+
+def helper_extract_and_convert_date(string):
+    # Regular expression pattern to match the German date format
+    pattern = r"\b\d{2}\.\d{2}\.\d{4}\b"
+    match = re.search(pattern, string)
+    if match:
+        # convert German date format to datetime object
+        return datetime.strptime(match.group(), "%d.%m.%Y")
+
+    return ""
+
+
+def helper_print_list(todo_list: list):
+    for todo in todo_list:
+        print(f"{todo.strip()}")
 
 
 def filter_overdue(todo_list: list):
